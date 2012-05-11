@@ -16,11 +16,11 @@ int main(int argc, char * argv[])
     boost::system::error_code ec;
 
     if (argc == 2) {
-	std::vector<std::pair<std::string, std::string> > module_versions;
+	std::map<std::string, std::string> module_versions;
         ec = framework::system::Version::get_version(file, module_versions);
         if (!ec) {
-            for (size_t i = 0; i < module_versions.size(); ++i) {
-                std::cout << module_versions[i].first << ": " << module_versions[i].second << std::endl;
+            for (std::map<std::string, std::string>::const_iterator iter = module_versions.begin(); iter != module_versions.end(); ++iter) {
+                std::cout << iter->first << ": " << iter->second << std::endl;
             }
         }
     } else if (argc == 3) {
