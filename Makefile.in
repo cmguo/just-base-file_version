@@ -1,18 +1,18 @@
+## 该项目默认的配置类型
+
+LOCAL_CONFIG			:= debug multi
+
 ## 项目类型
 
 PROJECT_TYPE			:= bin
 
-## 生成目标名称（完整文件名称要根据类型PROJECT_TYPE、配置PROJECT_CONFIG、版本PROJECT_VERSION增加前缀、后缀）
+## 生成目标名称（完整文件名称要根据类型PROJECT_TYPE、配置LOCAL_CONFIG、版本PROJECT_VERSION增加前缀、后缀）
 
 PROJECT_TARGET			:= file_version
 
 ## 项目版本号（只要前三位，最后一位自动生成）
 
 PROJECT_VERSION			:=
-
-## 该项目默认的配置类型
-
-PROJECT_CONFIG			:= debug multi
 
 ## 指定源文件目录（该项目源文件的总目录，相对于源文件根目录ROOT_SOURCE_DIRECTORY，默认为LOCAL_NAME）
 
@@ -44,22 +44,18 @@ PROJECT_EXTERNAL_INCLUDES	:=
 
 ## 该项目特点的编译选项
 
-PROJECT_COMPILE_FLAGS		:=
+PROJECT_COMPILE_FLAGS		:= $(PROJECT_COMPILE_FLAGS)
 
 ## 该项目特点的链接选项
 
-PROJECT_LINK_FLAGS		:=
+PROJECT_LINK_FLAGS		:= $(PROJECT_LINK_FLAGS)
 
 ## 该项目依赖的其他项目
 
 PROJECT_DEPENDS			:= \
-				/base/framework \
-				/base/boost/system \
-				/base/boost/filesystem \
+				/framework \
 				$(PROJECT_DEPENDS)
 
 ## 该项目特定的引用库
 
-PROJECT_DEPEND_LIBRARYS		:=
-
-include $(RELETIVE_DIR)/../BootStrap.mk
+PROJECT_DEPEND_LIBRARYS		:= $(PROJECT_DEPEND_LIBRARYS)
